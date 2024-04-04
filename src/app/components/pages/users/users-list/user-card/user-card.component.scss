@@ -1,0 +1,24 @@
+.card-container {
+  border: 0.0625rem solid #005cbb;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  border-radius: 0.625rem;
+  margin-bottom: 2rem;
+  padding: 0.3125rem;
+  min-height: 8.5rem;
+  cursor: pointer;
+  transition-duration: 0.4s;
+
+  &:hover {
+    background-color: #d7e3ff;
+  }
+
+  img {
+    border-radius: 0.625rem;
+  }
+
+  .user-details {
+    text-align: left;
+  }
+}

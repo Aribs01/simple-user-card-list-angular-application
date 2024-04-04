@@ -1,0 +1,44 @@
+<ng-container
+  *ngIf="{
+    selectedUser: selectedUser$ | async,
+    selectedUserSupportMessage: selectedUserSupportMessage$ | async,
+    loading: loading$ | async
+  } as obs"
+>
+  <div class="back-button-container">
+    <button (click)="goBackToUserList()">Back</button>
+  </div>
+  <div class="user-card-container">
+    <ng-container *ngIf="!obs.loading; else noTableData">
+      <div class="card-container" *ngIf="obs.selectedUser">
+        <img
+          [src]="obs.selectedUser.avatar"
+          [alt]="obs.selectedUser.first_name + 'avatar'"
+        />
+
+        <div class="user-details">
+          <div>ID: {{ obs.selectedUser.id }}</div>
+          <h4>
+            {{ obs.selectedUser.last_name }} {{ obs.selectedUser.first_name }}
+          </h4>
+        </div>
+      </div>
+
+      <div class="message-details" *ngIf="obs.selectedUserSupportMessage">
+        <a [href]="obs.selectedUserSupportMessage.url" target="_blank">
+          <h4>
+            {{ obs.selectedUserSupportMessage.text }}
+          </h4>
+        </a>
+      </div>
+    </ng-container>
+  </div>
+
+  <ng-template #noTableData>
+    <div
+      class="user-card-container d-flex align-items-center justify-content-center"
+    >
+      <mat-spinner></mat-spinner>
+    </div>
+  </ng-template>
+</ng-container>

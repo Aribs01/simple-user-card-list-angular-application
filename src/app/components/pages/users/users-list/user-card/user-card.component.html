@@ -1,0 +1,8 @@
+<div class="card-container" (click)="onCardClick(user.id)">
+  <img [src]="user.avatar" [alt]="user.first_name + 'avatar'" />
+
+  <div class="user-details">
+    <div>ID: {{ user.id }}</div>
+    <h4>{{ user.last_name }} {{ user.first_name }}</h4>
+  </div>
+</div>

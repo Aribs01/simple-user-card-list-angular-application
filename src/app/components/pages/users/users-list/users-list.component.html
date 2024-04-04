@@ -1,0 +1,33 @@
+<ng-container
+  *ngIf="{
+    usersList: usersList$ | async,
+    pageParam: pageParam$ | async,
+    loading: loading$ | async
+  } as obs"
+>
+  <div class="row user-card-container">
+    <ng-container *ngIf="!obs.loading; else noTableData">
+      <app-user-card
+        class="col-md-6 col-12"
+        *ngFor="let user of selectUserArrayFromList(obs.usersList)"
+        [user]="user"
+      ></app-user-card>
+    </ng-container>
+
+    <mat-paginator
+      [pageSize]="6"
+      [hidePageSize]="false"
+      [length]="obs.pageParam?.total"
+      (page)="onPaginationChange($event)"
+    >
+    </mat-paginator>
+  </div>
+
+  <ng-template #noTableData>
+    <div
+      class="user-card-container d-flex align-items-center justify-content-center"
+    >
+      <mat-spinner></mat-spinner>
+    </div>
+  </ng-template>
+</ng-container>

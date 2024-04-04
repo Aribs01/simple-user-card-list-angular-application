@@ -1,0 +1,24 @@
+.back-button-container {
+  width: 60%;
+  margin: 2rem 0;
+  text-align: center;
+
+  button {
+    border: 1px solid #005cbb;
+    background-color: #d7e3ff;
+    transition-duration: 0.4;
+    padding: 0.3125rem 1.25rem;
+    border-radius: 0.3125rem;
+
+    &:hover {
+        opacity: 0.8;
+    }
+  }
+}
+
+.user-card-container {
+  width: 60%;
+  text-align: center;
+  margin: 2rem auto;
+  min-height: 80vh;
+}
